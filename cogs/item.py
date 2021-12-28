@@ -47,7 +47,7 @@ class Item(commands.Cog):
                 elif not data[f'{arg}']['Weight']:
                     embed.add_field(name=f"Weight", value="None", inline=True)
                 else:
-                    embed.add_field(name=f"Weight", value=f"{data[f'{arg}']['Weight']}", inline=True)
+                    embed.add_field(name=f"Weight", value=f"{round(data[f'{arg}']['Weight'], 3)}", inline=True)
                 if 'Icon' not in data[f'{arg}']:
                     embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png")
                     embed.set_footer(text="Requested by: {}".format(ctx.author.display_name), icon_url="https://cdn.discordapp.com/emojis/754736642761424986.png")
