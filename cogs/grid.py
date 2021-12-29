@@ -16,7 +16,6 @@ for length in data:
 		continue
 	else:
 		grid_check.append(grid)
-print(grid_check)
 
 
 class Grid(commands.Cog):

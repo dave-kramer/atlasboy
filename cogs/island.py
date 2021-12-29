@@ -26,7 +26,10 @@ class Island(commands.Cog):
                     if arg == data[length]['discoveries'][0]['name']:
                         embed = discord.Embed(title=f"{data[length]['discoveries'][0]['name']}", color=0x87CEEB)
                         embed.add_field(name=f"ID", value=f"{data[length]['name']}", inline=True)
-                        embed.add_field(name=f"Region", value=f"{data[length]['region']}", inline=True)
+                        if not data[length]['region']:
+                            embed.add_field(name=f"Region", value="None", inline=True)
+                        else:
+                            embed.add_field(name=f"Region", value=f"{data[length]['region']}", inline=True)
                         embed.add_field(name=f"Grid", value=f"{data[length]['grid']}", inline=True)
                         biomes_string = ', '.join(data[length]['biomeTags'])
                         embed.add_field(name=f"Biomes", value=f"{biomes_string}", inline=False)
