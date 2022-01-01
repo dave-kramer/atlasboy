@@ -1,10 +1,9 @@
 import discord
 import datetime
 
-import json
-
 from discord.ext import commands
 from discord.ext.commands import MissingRequiredArgument
+from all import islandinfo_list
 
 
 class Island(commands.Cog):
@@ -15,33 +14,31 @@ class Island(commands.Cog):
     
     @commands.command(name='island')
     async def island(self, ctx, *, arg: str):
-        with open('json/islands.json') as f:
-            data = json.load(f)
             arg = arg.title()
 
-            for length in data:
-                if not data[length]['discoveries']:
-                    continue
-                else:
-                    if arg == data[length]['discoveries'][0]['name']:
-                        embed = discord.Embed(title=f"{data[length]['discoveries'][0]['name']}", color=0x87CEEB)
-                        embed.add_field(name=f"ID", value=f"{data[length]['name']}", inline=True)
-                        if not data[length]['region']:
-                            embed.add_field(name=f"Region", value="None", inline=True)
-                        else:
-                            embed.add_field(name=f"Region", value=f"{data[length]['region']}", inline=True)
-                        embed.add_field(name=f"Grid", value=f"{data[length]['grid']}", inline=True)
-                        biomes_string = ', '.join(data[length]['biomeTags'])
-                        embed.add_field(name=f"Biomes", value=f"{biomes_string}", inline=False)
-                        animal_string = ', '.join(data[length]['animals'])
-                        embed.add_field(name=f"Animals", value=f"{animal_string}", inline=False)
-                        resource_string = ', '.join(data[length]['resources'])
-                        embed.add_field(name=f"Resources", value=f"{resource_string}", inline=False)
-                        file = discord.File(f"island-img/{data[length]['name']}.webp", filename=f"{data[length]['name']}.webp")
-                        embed.set_thumbnail(url=f"attachment://{data[length]['name']}.webp")
-                        embed.set_footer(text="Requested by: {}".format(ctx.author.display_name), icon_url="https://cdn.discordapp.com/emojis/754736642761424986.png")
-                        embed.timestamp = datetime.datetime.utcnow()
-                        await ctx.send(embed=embed, file=file)
+            for length in islandinfo_list:
+                for key in length:
+                    if key == f'{arg}':
+                        
+                            embed = discord.Embed(title=f"{arg}", color=0x87CEEB)
+                            embed.add_field(name=f"ID", value=f"{length[key][0]}", inline=True)
+                            
+                            if not length[key][1]:
+                                embed.add_field(name=f"Region", value="None", inline=True)
+                            else:
+                                embed.add_field(name=f"Region", value=f"{length[key][1]}", inline=True)
+
+                            embed.add_field(name=f"Grid", value=f"{length[key][2]}", inline=True)
+                            embed.add_field(name=f"Biomes", value=f"{length[key][3]}", inline=False)
+                            embed.add_field(name=f"Animals", value=f"{length[key][4]}", inline=False)
+                            embed.add_field(name=f"Resources", value=f"{length[key][5]}", inline=False)
+
+                            file = discord.File(f"island-img/{length[key][0]}.webp", filename=f"{length[key][0]}.webp")
+                            embed.set_thumbnail(url=f"attachment://{length[key][0]}.webp")
+                            embed.set_footer(text="Requested by: {}".format(ctx.author.display_name), icon_url="https://cdn.discordapp.com/emojis/754736642761424986.png")
+                            embed.timestamp = datetime.datetime.utcnow()
+                            
+                            await ctx.send(embed=embed, file=file)
 
                     
 
