@@ -37,10 +37,9 @@ class Island(commands.Cog):
                             embed.set_thumbnail(url=f"attachment://{length[key][0]}.webp")
                             embed.set_footer(text="Requested by: {}".format(ctx.author.display_name), icon_url="https://cdn.discordapp.com/emojis/754736642761424986.png")
                             embed.timestamp = datetime.datetime.utcnow()
-                            
+
                             await ctx.send(embed=embed, file=file)
 
-                    
 
 # adding cog to bot setup
 def setup(bot):

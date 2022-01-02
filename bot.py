@@ -3,23 +3,15 @@ import os
 import random
 import asyncio
 
+from dotenv import load_dotenv
 from discord.ext import commands
 
 """
-Make sure to put YOUR bot token inbetween the '' otherwise the bot won't load.
+Make sure to put YOUR bot token inside a new .env file otherwise the bot won't load.
 """
-TOKEN = ''
+load_dotenv()
+TOKEN = os.getenv("DISCORD_TOKEN")
 client = commands.Bot(command_prefix = ';')
-
-
-@client.command()
-async def reload(ctx, extension):
-    """
-    | Reload command for cogs
-    | To reload a function use .reload with the cog name - example: .reload animesearch
-    """
-    client.unload_extension(f'cogs.{extension}')
-    client.load_extension(f'cogs.{extension}')
 
 
 for filename in os.listdir('./cogs'):
@@ -31,11 +23,17 @@ for filename in os.listdir('./cogs'):
 
 
 @client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send("Unknown command use ;commands.")
+
+
+@client.event
 async def on_ready():
     """
     | Activity of the discord bot
     """
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='On the seas'))
+    await client.change_presence(activity=discord.Game(name="on the sea"))
     print('AtlasBoy is online.')
 
 
@@ -44,11 +42,11 @@ async def ch_pr():
     """
     | Add multiple statuses by changing inbetween the "" or adding the , and putting more "" before the ]
     """
-    statuses = ["Eating poo to die", "Building a Galleon", "On the seas"]
+    statuses = ["with bear poo", ";commands", "with the parrot"]
 
     while not client.is_closed():
         status = random.choice(statuses)
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=status))
+        await client.change_presence(activity=discord.Game(name=status))
         """
         | You can change the timer for activity by replacing the 120 (2minutes) with for example 60 (1minute) just make sure to put it in seconds.
         """

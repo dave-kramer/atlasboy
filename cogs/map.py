@@ -1,10 +1,7 @@
 import discord
 import datetime
 
-import json
-
 from discord.ext import commands
-from discord.ext.commands import MissingRequiredArgument
 
 
 class Map(commands.Cog):
