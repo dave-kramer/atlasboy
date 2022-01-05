@@ -1,4 +1,4 @@
-<img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="AtlasBoy" src="https://raw.githubusercontent.com/dave-kramer/atlasboy/main/atlasboyimg.png?size=1024"> 
+<img width="120" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="AtlasBoy" src="https://raw.githubusercontent.com/dave-kramer/atlasboy/main/atlasboyimg.png?size=1024"> 
 
 # AtlasBoy 
 
