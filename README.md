@@ -11,6 +11,7 @@
 AtlasBoy is a open source Discord bot coded in Python by [dave-kramer](https://github.com/dave-kramer). 
 
 
+# Commands
 | Command   | Information | Example |
 | ------------- | ------------- | ------------- |
 | ;animal | Gives you the XP, XP per hit, tame, preference, min & max breed temp, breed interval and drops.  | ;animal chicken |
@@ -21,7 +22,7 @@ AtlasBoy is a open source Discord bot coded in Python by [dave-kramer](https://g
 | ;food  | Gives you information about the food. | ;food stimberry |
 | ;map  | Gives you the full map of Atlas. | ;map |
 
-
+# Previews
 ![gridpreview](https://raw.githubusercontent.com/dave-kramer/atlasboy/main/previews/gridpreview.png)
 ![islandpreview](https://raw.githubusercontent.com/dave-kramer/atlasboy/main/previews/islandpreview.png)
 ![itempreview](https://raw.githubusercontent.com/dave-kramer/atlasboy/main/previews/itempreview.png)
