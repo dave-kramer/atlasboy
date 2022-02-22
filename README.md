@@ -5,7 +5,7 @@
 [![](https://img.shields.io/badge/discord.py-v1.7.3-blue.svg?logo=npm)](https://github.com/Rapptz/discord.py)
 [![License](https://img.shields.io/github/license/dave-kramer/atlasboy)](https://github.com/dave-kramer/atlasboy/blob/main/LICENSE)
 
-> A Discord bot for the game Atlas
+> A Discord bot for the game Atlas Season PATCH V535.8+
 
 AtlasBoy is a open source Discord bot coded in Python by [dave-kramer](https://github.com/dave-kramer). 
 
