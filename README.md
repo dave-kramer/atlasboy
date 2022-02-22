@@ -2,7 +2,6 @@
 
 # AtlasBoy 
 
-[![Discord](https://img.shields.io/discord/927517646260437032.svg?colorB=7289da&label=discord&logo=Discord&logoColor=fff&style=flat)](https://discord.gg/bKcFgGA5ya)
 [![](https://img.shields.io/badge/discord.py-v1.7.3-blue.svg?logo=npm)](https://github.com/Rapptz/discord.py)
 [![License](https://img.shields.io/github/license/dave-kramer/atlasboy)](https://github.com/dave-kramer/atlasboy/blob/main/LICENSE)
 
